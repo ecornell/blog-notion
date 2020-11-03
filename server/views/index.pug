@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  <section class="section">
+    <div class="container">
+
+      if message
+        <article class="message is-info">          
+          <div class="message-body">#{message}</div>
+        </article>
+
+      <h1 class="title">Hi, I'm Eli</h1>
+      <p class="subtitle">Welcome to my blog.</p>
+      
+        ul(class='posts')
+          each post, index in body
+            if post.fields.published
+              //-li= index + ': ' + post.id + ' - ' + post.fields.Title + ' - ' + 
+              li(class='post')
+                span(class='post-date') #{post.fields.date.start_date}
+                span(class='post-title')
+                  a(href='post/'+post.fields.slug+'/'+post.id) #{post.fields.title}
+
+    </div>
+  </section>
+
+
+
+          
